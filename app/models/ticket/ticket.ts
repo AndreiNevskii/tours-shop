@@ -1,7 +1,7 @@
 import {IUser} from "../user/user";
 
 export interface ITicket {
-    // id?: string,
+    id?: string,
     description: string,
     name: string,
     price: string,

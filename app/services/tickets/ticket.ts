@@ -10,18 +10,18 @@ import {openModal} from "@services/modal/modalService";
 export function initTicketInfo(ticket: TicketType | IVipTicket): void {
     const targetElement = document.querySelector('.ticket-info') as HTMLElement;
 
-    const ticketDescription = ticket?.description;
-    const ticketOperator = ticket?.tourOperator;
-    let vipClientType;
+    const ticketDescription = ticket?.description as string;
+    const ticketOperator = ticket?.tourOperator as string;
+    let vipClientType: string;
     if ("vipStatus" in ticket) {
         vipClientType = ticket.vipStatus;
     }
 
 
     const ticketElemsArr: [string, string, string] = [ticketDescription, ticketOperator, vipClientType];
-    let ticketElemTemplate;
+    let ticketElemTemplate: string;
 
-    ticketElemsArr.forEach((el, i) => {
+    ticketElemsArr.forEach((el: string, i: number) => {
         ticketElemTemplate += initTicketElementTemplate(el, i);
     });
 
@@ -29,7 +29,7 @@ export function initTicketInfo(ticket: TicketType | IVipTicket): void {
 
 }
 
-export function initUserData() {
+export function initUserData(): void {
 const userInfo = document.querySelectorAll('.user-info > p');
 let userInfoObj;
     userInfo.forEach((el) => {

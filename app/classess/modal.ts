@@ -9,8 +9,8 @@ class Modal {
     }
 
     public open(template: string): void {
-        this.container = document.createElement('div');
-        this.container.innerHTML = template;
+        this.container = document.createElement('div') as HTMLDivElement ;
+        this.container.innerHTML = template as string;
         this.container.id = this.id;
         this.container.setAttribute('modal-id', this.id);
         this.container.classList.add('modal-element');
